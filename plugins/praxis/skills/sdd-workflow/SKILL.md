@@ -46,12 +46,12 @@ description: |
 ## ワークフローの全体像
 
 1. **設計** - ユーザーと共同で設計を行う
-  - 設計の作成 : `agent-tasks/<ブランチ名>/<TOPIC>/spec.md`
+  - 設計の作成 : `.praxis/agent-tasks/<ブランチ名>/<TOPIC>/spec.md`
 2. **実装計画** - 設計を細かいタスクに落とし込む
-  - 実装計画の作成 : `agent-tasks/<ブランチ名>/<TOPIC>/plan.md`
+  - 実装計画の作成 : `.praxis/agent-tasks/<ブランチ名>/<TOPIC>/plan.md`
 3. **実装** - 実装計画に沿って実装する
 4. **確認・修正フェーズ** - ユーザーが実装や動作を確認してAIに質問や修正依頼を行う
-  - 修正記録の作成 : `agent-tasks/<ブランチ名>/<TOPIC>/fixes.md`
+  - 修正記録の作成 : `.praxis/agent-tasks/<ブランチ名>/<TOPIC>/fixes.md`
 5. **ADR記録** - このワークフローでの重要な設計判断をドキュメントに残す
   - 設計判断記録の作成 : `docs/adr/<TICKET_ID>_<TITLE>.md`
 6. **教訓の抽出** - このワークフローで受けた指摘を一般化しauto memoryに残す
@@ -64,7 +64,7 @@ description: |
 
 | 作成するファイル | パス |
 | :--- | :--- |
-| 設計書 | `agent-tasks/<ブランチ名>/<TOPIC>/spec.md` |
+| 設計書 | `.praxis/agent-tasks/<ブランチ名>/<TOPIC>/spec.md` |
 
 ### 1.1 情報収集と概念の理解
 
@@ -151,7 +151,7 @@ DRY, YAGNI, TDD, 頻繁なコミットを心がけること
 
 | 作成するファイル | パス |
 | :--- | :--- |
-| 実装計画 | `agent-tasks/<ブランチ名>/<TOPIC>/plan.md` |
+| 実装計画 | `.praxis/agent-tasks/<ブランチ名>/<TOPIC>/plan.md` |
 
 
 ### 2.1 実装計画の作成
@@ -302,7 +302,7 @@ git commit -m "feat: add specific feature"
 
 | 作成するファイル | パス |
 | :--- | :--- |
-| 修正記録 | `agent-tasks/<ブランチ名>/<TOPIC>/fixes.md` |
+| 修正記録 | `.praxis/agent-tasks/<ブランチ名>/<TOPIC>/fixes.md` |
 
 ### このフェーズの原則
 
@@ -336,7 +336,7 @@ flowchart TD
 | 指摘・バグ報告・修正依頼 | 「XXが動かない」「XXをYYに修正して」 | 4.2に進む |
 
 - 相談の中に修正の意図が混ざっていて判断がつかない場合は、修正するかどうかをユーザーに確認する。推測で着手しない
-- 指摘が複数同時に来た場合は `agent-tasks/<ブランチ名>/<TOPIC>/fixes.md` に一覧化し、優先度を合意してから1件ずつ回す。まとめて着手すると、どの変更がどの結果をもたらしたかを切り分けられなくなる
+- 指摘が複数同時に来た場合は `.praxis/agent-tasks/<ブランチ名>/<TOPIC>/fixes.md` に一覧化し、優先度を合意してから1件ずつ回す。まとめて着手すると、どの変更がどの結果をもたらしたかを切り分けられなくなる
 
 ### 4.2 再現と原因調査
 
@@ -367,7 +367,7 @@ flowchart TD
 
 ### 4.6 記録
 
-修正1件ごとに `agent-tasks/<ブランチ名>/<TOPIC>/fixes.md` へ追記する。
+修正1件ごとに `.praxis/agent-tasks/<ブランチ名>/<TOPIC>/fixes.md` へ追記する。
 
 
 | 対象 | 更新するタイミング |

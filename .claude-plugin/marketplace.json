@@ -1,0 +1,13 @@
+{
+  "name": "project-skillkit",
+  "owner": {
+    "name": "ktamido"
+  },
+  "plugins": [
+    {
+      "name": "praxis",
+      "source": "./plugins/praxis",
+      "description": "開発・運用におけるエージェントの普遍的な行動規範集(ワークフロー、ドキュメント執筆、UIモックアップ、ヘッドレスブラウザ操作)"
+    }
+  ]
+}

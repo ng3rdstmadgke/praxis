@@ -1,4 +1,4 @@
-# project-skillkit
+# praxis
 
 複数プロジェクトで共有する、Claude Code向けの共通スキル(プラグイン)を管理するリポジトリです。
 
@@ -18,19 +18,19 @@ Claude Code上で以下を実行します。
 ### 1. マーケットプレイスを登録する
 
 ```
-/plugin marketplace add ktamido/project-skillkit
+/plugin marketplace add ng3rdstmadgke/praxis
 ```
 
 ローカルにcloneしたリポジトリを直接指定する場合はパスを渡します。
 
 ```
-/plugin marketplace add ./path/to/project-skillkit
+/plugin marketplace add ./path/to/praxis
 ```
 
 ### 2. プラグインをインストールする
 
 ```
-/plugin install praxis@project-skillkit
+/plugin install praxis@praxis
 ```
 
 インストール時にスコープ(ユーザー/プロジェクト/ローカル)を選択できます。
@@ -45,7 +45,7 @@ Claude Code上で以下を実行します。
 /plugin list
 ```
 
-`praxis@project-skillkit` が表示されていればインストール完了です。
+`praxis@praxis` が表示されていればインストール完了です。
 
 ## 更新する
 
@@ -55,7 +55,7 @@ Claude Codeを再起動してください。
 ## リポジトリ構成
 
 ```
-project-skillkit/
+praxis/
 ├── .claude-plugin/
 │   └── marketplace.json      # マーケットプレイス定義
 └── plugins/

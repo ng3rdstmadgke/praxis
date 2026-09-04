@@ -39,35 +39,24 @@ Claude Code上で以下を実行します。
 - **プロジェクト**: `.claude/settings.json` に記録。バージョン管理され、チームで共有
 - **ローカル**: `.claude/settings.local.json` に記録。このプロジェクトの自分だけ
 
-### 3. 確認する
+## 利用ガイド
+
+### sdd-workflow
+
+Spec Driven Development (設計 → 実装計画 → 実装 → 確認・修正 → ADR記録 → 教訓抽出) を行うためのワークフローです。複雑な依存関係の考慮や設計判断を伴う非自明なタスクに使用します。
 
 ```
-/plugin list
+/praxis:sdd-workflow 注文APIにキャンセル機能を追加したい
 ```
 
-`praxis@praxis` が表示されていればインストール完了です。
+のように非自明な実装タスクを渡すと、要件定義から基本設計・詳細設計までユーザーと共同でブレインストーミングを行い、`.praxis/agent-tasks/<ブランチ名>/<TOPIC>/spec.md` に設計書、`plan.md` に実装計画を作成します。実装自体は完了条件を組み立てて `/goal` に委ねます。
 
-## 更新する
+### cognitive-rhythm-writing
 
-マーケットプレイス側のリポジトリを更新した後、利用側で最新化する場合は再度マーケットプレイスを追加し直すか、
-Claude Codeを再起動してください。
-
-## リポジトリ構成
+説明的な文章に緩急を設計するための規範です。緩急を装飾ではなく、観察→逡巡→断定→再観察という認知モードの切替として扱い、常に「続きを読む理由」(未回収の緊張) を保つように文章を組み立てます。読み物として読ませたい章・記事・解説文を生成するとき、または「密度はあるが平坦でおもしろくない」文章を診断・修正するときに使用します。
 
 ```
-praxis/
-├── .claude-plugin/
-│   └── marketplace.json      # マーケットプレイス定義
-└── plugins/
-    └── praxis/
-        ├── .claude-plugin/
-        │   └── plugin.json   # praxisプラグインの定義
-        └── skills/
-            ├── project-workflow/         # 開発ワークフロー
-            ├── cognitive-rhythm-writing/ # ドキュメント執筆
-            ├── ui-mockup/                # UIモックアップ
-            └── headless-browser-debug/   # ヘッドレスブラウザ操作・デバッグ
+/praxis:cognitive-rhythm-writing 以下の解説記事のドラフトに緩急をつけて推敲してください
 ```
 
-新しいプラグインを追加する場合は `plugins/` 配下にディレクトリを作成し、
-`.claude-plugin/marketplace.json` の `plugins` 配列にエントリを追記してください。
+のように、生成済みのドラフトや新規に書きたい説明文を渡すと、文の拍・段落の密度・冒頭や節の入り方などの観点で文章を点検・修正します。

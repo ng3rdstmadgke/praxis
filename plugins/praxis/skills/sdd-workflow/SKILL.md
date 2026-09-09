@@ -277,11 +277,12 @@ git commit -m "feat: add specific feature"
 
 ## 3. 実装
 
-`plan.md` の実装は `/goal` に委ねる。`/goal` はユーザーからのみセットできるセッション機能のため、AIの役割は完了条件を組み立てて提示するところまでとする。
+`plan.md` の実装は `/goal` に委ねる。`/goal` はユーザーからのみセットできるセッション機能のため、AIの役割は完了条件を組み立てて提示するところまでとする。この手順はCodexとClaude Codeのどちらでも利用できる。
 
 ### 3.1 完了条件の組み立て
 
-[公式ドキュメント](https://code.claude.com/docs/en/goal)の「Write an effective condition」に沿い、`plan.md`/`spec.md` から次を満たす完了条件を組み立てる。
+- Claude Code利用時: [Keep Claude working toward a goal | Claude](https://code.claude.com/docs/en/goal) の「Write an effective condition」に沿い、`plan.md`/`spec.md` から次を満たす完了条件を組み立てる。
+- Codex利用時: [Follow a goal | Codex](https://learn.chatgpt.com/use-cases/follow-goals)に沿い、`plan.md`/`spec.md` から次を満たす完了条件を組み立てる。
 
 - **測定可能な終了状態**: 例)`plan.md` の全タスクが完了していること
 - **検証方法**: その終了状態をどう証明するか。例)「各タスクのテストコマンドがすべてPASSし、コミットされている」
@@ -295,9 +296,9 @@ git commit -m "feat: add specific feature"
 /goal <組み立てた条件>
 ```
 
-無人実行にしたい場合は auto mode の併用が必要であることを伝える。`/goal` 自体は権限モードを変えないため、Manual modeのままだとツール呼び出しのたびに確認が入る。
+無人実行にしたい場合は、利用中のホストでツール実行を自動承認するモードの併用が必要であることを伝える。`/goal` 自体は権限モードを変えないため、手動承認の設定ではツール呼び出しのたびに確認が入る。
 
-### 3.3 実実装完了後
+### 3.3 実装完了後
 
 ユーザーにレビュー観点を報告し「4. 確認・修正フェーズ」に進む
 

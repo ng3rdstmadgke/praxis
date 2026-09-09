@@ -1,21 +1,43 @@
 # praxis
 
-複数プロジェクトで共有する、Claude Code向けの共通スキル(プラグイン)を管理するリポジトリです。
+複数プロジェクトで共有する、Codex・Claude Code向けの共通スキル（プラグイン）を管理するリポジトリです。
 
-このリポジトリ自体がClaude Codeの[プラグイン・マーケットプレイス](.claude-plugin/marketplace.json)であり、
+このリポジトリ自体がCodexとClaude Codeのプラグイン・マーケットプレイスであり、
 `plugins/` 配下に各プラグインを配置しています。
 
 ## 提供プラグイン
 
 | プラグイン | 内容 |
 |---|---|
-| [`praxis`](plugins/praxis) | 開発・運用におけるエージェントの普遍的な行動規範集(ワークフロー、ドキュメント執筆、UIモックアップ、ヘッドレスブラウザ操作) |
+| [`praxis`](plugins/praxis) | Spec Driven Developmentと日本語技術文書の作成・推敲を支援する共通スキル集 |
 
 ## 導入手順
 
-Claude Code上で以下を実行します。
+### Codex
 
-### 1. マーケットプレイスを登録する
+リポジトリをMarketplaceとして登録します。
+
+```bash
+codex plugin marketplace add ng3rdstmadgke/praxis
+```
+
+ローカルにcloneしたリポジトリを直接指定する場合はパスを渡します。
+
+```bash
+codex plugin marketplace add ./path/to/praxis
+```
+
+続けてプラグインをインストールします。
+
+```bash
+codex plugin add praxis@praxis
+```
+
+インストール後、新しい会話で `$sdd-workflow`、`$japanese-tech-writing`、`$cognitive-rhythm-writing` を呼び出せます。スキルが表示されない場合はCodexを再起動してください。
+
+### Claude Code
+
+Claude Code上でMarketplaceを登録します。
 
 ```
 /plugin marketplace add ng3rdstmadgke/praxis
@@ -27,7 +49,7 @@ Claude Code上で以下を実行します。
 /plugin marketplace add ./path/to/praxis
 ```
 
-### 2. プラグインをインストールする
+続けてプラグインをインストールします。
 
 ```
 /plugin install praxis@praxis
@@ -45,18 +67,34 @@ Claude Code上で以下を実行します。
 
 Spec Driven Development (設計 → 実装計画 → 実装 → 確認・修正 → ADR記録 → 教訓抽出) を行うためのワークフローです。複雑な依存関係の考慮や設計判断を伴う非自明なタスクに使用します。
 
+Codexでは次のように呼び出します。
+
+```text
+$sdd-workflow 注文APIにキャンセル機能を追加したい
 ```
+
+Claude Codeでは次のように呼び出します。
+
+```text
 /praxis:sdd-workflow 注文APIにキャンセル機能を追加したい
 ```
 
-のように非自明な実装タスクを渡すと、要件定義から基本設計・詳細設計までユーザーと共同でブレインストーミングを行い、`.praxis/agent-tasks/<ブランチ名>/<TOPIC>/spec.md` に設計書、`plan.md` に実装計画を作成します。実装自体は完了条件を組み立てて `/goal` に委ねます。
+要件定義から基本設計・詳細設計までユーザーと共同でブレインストーミングを行い、`.praxis/agent-tasks/<ブランチ名>/<TOPIC>/spec.md` に設計書、`plan.md` に実装計画を作成します。実装自体は完了条件を組み立てて `/goal` に委ねます。
 
 ### cognitive-rhythm-writing
 
 説明的な文章に緩急を設計するための規範です。緩急を装飾ではなく、観察→逡巡→断定→再観察という認知モードの切替として扱い、常に「続きを読む理由」(未回収の緊張) を保つように文章を組み立てます。読み物として読ませたい章・記事・解説文を生成するとき、または「密度はあるが平坦でおもしろくない」文章を診断・修正するときに使用します。
 
+Codexでは次のように呼び出します。
+
+```text
+$cognitive-rhythm-writing 以下の解説記事のドラフトに緩急をつけて推敲してください
 ```
+
+Claude Codeでは次のように呼び出します。
+
+```text
 /praxis:cognitive-rhythm-writing 以下の解説記事のドラフトに緩急をつけて推敲してください
 ```
 
-のように、生成済みのドラフトや新規に書きたい説明文を渡すと、文の拍・段落の密度・冒頭や節の入り方などの観点で文章を点検・修正します。
+生成済みのドラフトや新規に書きたい説明文を渡すと、文の拍・段落の密度・冒頭や節の入り方などの観点で文章を点検・修正します。

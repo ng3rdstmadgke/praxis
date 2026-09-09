@@ -1,0 +1,21 @@
+{
+  "name": "praxis",
+  "version": "0.1.0",
+  "description": "Spec Driven Developmentと日本語技術文書の作成・推敲を支援する共通スキル集",
+  "author": {
+    "name": "ktamido",
+    "url": "https://github.com/ng3rdstmadgke"
+  },
+  "homepage": "https://github.com/ng3rdstmadgke/praxis",
+  "repository": "https://github.com/ng3rdstmadgke/praxis",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Praxis",
+    "shortDescription": "SDDと日本語技術文書のための共通スキル集",
+    "longDescription": "設計から実装までのSpec Driven Developmentワークフローと、日本語技術文書の作成・推敲に使う文章規範を提供します。",
+    "developerName": "ktamido",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Praxisのスキルを使って、開発ワークフローまたは日本語技術文書の作成を支援してください。"
+  }
+}

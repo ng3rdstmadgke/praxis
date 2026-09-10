@@ -66,8 +66,6 @@ description: |
 5. **ADR記録**
     - このワークフローでの重要な設計判断をドキュメントに残す  
     - 設計判断記録: `docs/adr/<TICKET_ID>_<TITLE>.md`
-6. **教訓の抽出**
-    - このワークフローで受けた指摘を一般化しauto memoryに残す  
 
 
 ## 1. 設計
@@ -418,8 +416,3 @@ flowchart TD
   - minimal: https://raw.githubusercontent.com/adr/madr/refs/tags/4.0.0/template/adr-template-minimal.md
   - full: https://raw.githubusercontent.com/adr/madr/refs/tags/4.0.0/template/adr-template.md
 - ADRは日本語で記述する
-
-## 6. 教訓の抽出
-
-- ユーザーから受けた指摘で、他のタスクにも適用すべきものを一般化して教訓として auto memory に残す
-- auto memory は更新のたびに棚卸しを行う。関連する既存メモリと結びつけや教訓の統廃合を行う

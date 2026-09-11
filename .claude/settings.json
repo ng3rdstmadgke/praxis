@@ -2,29 +2,31 @@
   "env": {
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
+  "sandbox": {
+    "enabled": true,
+    "allowUnsandboxedCommands": false
+  },
   "permissions": {
+    "defaultMode": "acceptEdits",
     "allow": [
-      "Edit",
-      "NotebookEdit",
-      "Write",
+      "Edit(/**)",
       "Skill",
       "WebSearch",
-      "WebFetch"
+      "WebFetch",
+      "Bash",
+      "mcp__context7__*"
     ],
     "deny": [],
     "ask": [
-      "Bash"
+      "Bash(git remote:*)",
+      "Bash(git push:*)"
     ]
   },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": ["context7"],
   "statusLine": {
     "type": "command",
     "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/statusline.sh\""
   },
-  "enabledPlugins": {
-    "praxis@praxis": true
-  },
-  "enableAllProjectMcpServers": true,
-  "enabledMcpjsonServers": [
-    "context7"
-  ],
+  "enabledPlugins": { "praxis@praxis": true }
 }
